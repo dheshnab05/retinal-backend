@@ -7,6 +7,8 @@ import numpy as np
 import io
 import gdown
 import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+import tensorflow as tf
 
 app = FastAPI(title="Retina MultiDisease API")
 
