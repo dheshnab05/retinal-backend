@@ -5,6 +5,7 @@ from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from PIL import Image
 import numpy as np
 import io
+import gdown
 import os
 
 app = FastAPI(title="Retina MultiDisease API")
