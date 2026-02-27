@@ -17,20 +17,22 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-MODEL_PATH = os.getenv(
-    "MODEL_PATH",
-    "multidisease_model_final_HEM.h5"
-)
+
 IMG_SIZE = (224, 224)
 DETECTION_THRESHOLD = 0.5
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "multidisease_model_final_HEM.h5")
+
+print("BASE_DIR:", BASE_DIR)
+print("MODEL_PATH:", MODEL_PATH)
+
 try:
     model = load_model(MODEL_PATH)
-    print("✅ Model loaded:", MODEL_PATH)
+    print("✅ Model loaded successfully")
 except Exception as e:
     print("❌ Error loading model:", e)
     raise
-
 def prepare_image(image_bytes: bytes):
     img = Image.open(io.BytesIO(image_bytes)).convert("RGB")
     img = img.resize(IMG_SIZE)
