@@ -17,13 +17,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 IMG_SIZE = (224, 224)
 DETECTION_THRESHOLD = 0.5
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "multidisease_model_final_HEM.h5")
 
+print("Current working directory:", os.getcwd())
 print("BASE_DIR:", BASE_DIR)
 print("MODEL_PATH:", MODEL_PATH)
 
