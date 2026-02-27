@@ -23,9 +23,15 @@ DETECTION_THRESHOLD = 0.5
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "multidisease_model_final_HEM.h5")
 
-print("Current working directory:", os.getcwd())
-print("BASE_DIR:", BASE_DIR)
-print("MODEL_PATH:", MODEL_PATH)
+# Google Drive model file ID
+FILE_ID = "1YDWVh1Sh9SuWx-PFbHi-t-HQYgQbvmUd"
+
+# Download the file if it does not exist
+if not os.path.exists(MODEL_PATH):
+    print("Downloading model from Google Drive...")
+    url = f"https://drive.google.com/uc?id={FILE_ID}"
+    gdown.download(url, MODEL_PATH, quiet=False)
+
 
 try:
     model = load_model(MODEL_PATH)
