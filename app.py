@@ -32,7 +32,6 @@ if not os.path.exists(MODEL_PATH):
     url = f"https://drive.google.com/uc?id={FILE_ID}"
     gdown.download(url, MODEL_PATH, quiet=False)
 
-
 try:
     model = load_model(MODEL_PATH)
     print("✅ Model loaded successfully")
